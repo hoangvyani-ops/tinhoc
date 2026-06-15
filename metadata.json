@@ -1,0 +1,8 @@
+{
+  "name": "Minh Họa Cấu Trúc Dữ Liệu Và Giải Thuật",
+  "description": "Website học tập trực quan tương tác giúp sinh viên học Cấu trúc dữ liệu và Giải thuật thông qua mô phỏng, animation sinh động và trắc nghiệm thực tế.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
