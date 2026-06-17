@@ -18,6 +18,10 @@ html, body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+html.dark, .dark body {
+  background-color: #090D16;
+}
+
 /* Custom scrollbar matching design HTML */
 ::-webkit-scrollbar {
   width: 6px;

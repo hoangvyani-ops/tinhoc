@@ -19,10 +19,10 @@ export default function About() {
             DSA Interactive Project 2026
           </span>
           <h2 className="text-2xl md:text-4xl font-extrabold font-display leading-tight">
-            Về Dự Án ALGO-VISUAL
+            Về Dự Án DSA - AI
           </h2>
           <p className="text-xs md:text-sm text-purple-150 leading-relaxed">
-            Dự án này ra đời với mục tiêu mang đến một phương thức học tập cấu trúc dữ liệu và giải thuật (DSA) hoàn toàn mới cho sinh viên và lập trình viên. Thay vì những dòng code khô khan, ALGO-VISUAL biến chúng thành hoạt ảnh trực quan chuyển động thời gian thực dễ tiếp thu nhất.
+            Dự án này ra đời với mục tiêu mang đến một phương thức học tập trực quan và hiệu quả về <strong>Cấu trúc dữ liệu và Giải thuật (DSA - viết tắt của Data Structures and Algorithms)</strong>. Thay vì những dòng code lý thuyết khô khan, <strong>DSA - AI</strong> chuyển hóa các khái niệm cấu trúc dữ liệu và thuật toán này thành hoạt ảnh trực quan chuyển động thời gian thực sinh động, giúp học viên dễ dàng tiếp thu kiến thức và phát triển tư duy lập trình tự nhiên.
           </p>
         </div>
       </section>
@@ -34,7 +34,7 @@ export default function About() {
             <BookOpen className="w-5.5 h-5.5 text-blue-500" />
             Phương châm học tập
           </h3>
-          <ul className="space-y-3 text-xs text-gray-500 dark:text-zinc-450 leading-relaxed pl-1">
+          <ul className="space-y-3 text-xs text-gray-500 dark:text-zinc-400 leading-relaxed pl-1">
             <li className="flex gap-2.5 items-start">
               <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
               <span><strong>Mô phỏng 100% phản hồi:</strong> Thao tác của người dùng lên các cấu trúc Stack, Queue được mô phỏng lập tức giúp định hình tư duy logic.</span>
@@ -76,10 +76,10 @@ export default function About() {
         <div className="mx-auto bg-rose-500/10 text-rose-500 h-10 w-10 rounded-full flex items-center justify-center shadow-inner animate-pulse">
           <Heart className="w-5 h-5 fill-rose-500" />
         </div>
-        <h4 className="text-sm font-bold font-display text-gray-800 dark:text-zinc-150">
+        <h4 className="text-sm font-bold font-display text-gray-800 dark:text-zinc-200">
           Chúc Bạn Học Tập Đạt Kết Quả Xuất Sắc!
         </h4>
-        <p className="text-xs text-gray-400 dark:text-zinc-550 max-w-md mx-auto leading-relaxed">
+        <p className="text-xs text-gray-400 dark:text-zinc-400 max-w-md mx-auto leading-relaxed">
           Hãy tận dụng tối đa lợi thế của mô phỏng trực quan để chinh phục học phần Cấu trúc dữ liệu & Giải thuật một cách dễ dàng và đầy tự tin.
         </p>
       </footer>

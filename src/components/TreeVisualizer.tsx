@@ -607,7 +607,7 @@ export default function TreeVisualizer() {
               const success = node.state === 'success';
               const visited = node.state === 'visited';
 
-              let nodeClass = 'bg-white dark:bg-zinc-900 border-gray-300 dark:border-zinc-750 text-gray-800 dark:text-zinc-150';
+              let nodeClass = 'bg-white dark:bg-zinc-900 border-gray-300 dark:border-zinc-700 text-gray-800 dark:text-zinc-100';
               if (checking) {
                 nodeClass = 'bg-orange-500 border-orange-600 text-white shadow-md glow-active scale-110';
               } else if (isNew) {

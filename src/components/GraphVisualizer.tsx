@@ -268,7 +268,7 @@ export default function GraphVisualizer() {
             <button
               id="graph-reset-btn"
               onClick={resetGraph}
-              className="p-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 dark:hover:bg-zinc-705 border border-gray-200 dark:border-zinc-750/30 rounded-xl transition-all text-gray-750 dark:text-zinc-200 cursor-pointer animate-none"
+              className="p-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 border border-gray-200 dark:border-zinc-700/30 rounded-xl transition-all text-gray-750 dark:text-zinc-200 cursor-pointer animate-none"
               title="Khởi tạo lại sơ khởi"
             >
               <RefreshCw className="w-4.5 h-4.5" />
@@ -293,12 +293,12 @@ export default function GraphVisualizer() {
                 maxLength={4}
                 value={newNodeLabel}
                 onChange={(e) => setNewNodeLabel(e.target.value)}
-                className="flex-1 px-3 py-2 bg-gray-50 dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 rounded-lg text-gray-800 dark:text-zinc-205 focus:outline-none"
+                className="flex-1 px-3 py-2 bg-gray-50 dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 rounded-lg text-gray-800 dark:text-zinc-200 focus:outline-none"
               />
               <button
                 id="graph-add-node-btn"
                 onClick={handleAddNode}
-                className="px-3.5 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-705 border border-zinc-200 dark:border-zinc-750 font-bold rounded-lg transition-colors text-gray-700 dark:text-zinc-200"
+                className="px-3.5 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700 font-bold rounded-lg transition-colors text-gray-700 dark:text-zinc-200"
               >
                 <Plus className="w-4.5 h-4.5" />
               </button>
@@ -395,7 +395,7 @@ export default function GraphVisualizer() {
             const isChecking = node.state === 'checking';
             const isVisited = node.state === 'visited';
 
-            let nodeStyle = 'bg-white dark:bg-zinc-900 text-gray-800 dark:text-zinc-150 border-gray-300 dark:border-zinc-700/80';
+            let nodeStyle = 'bg-white dark:bg-zinc-900 text-gray-800 dark:text-zinc-100 border-gray-300 dark:border-zinc-700/80';
             if (isChecking) {
               nodeStyle = 'bg-orange-500 border-orange-600 text-white shadow-lg glow-active scale-110 duration-70';
             } else if (isVisited) {

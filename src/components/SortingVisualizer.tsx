@@ -627,7 +627,7 @@ export default function SortingVisualizer() {
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-colors ${
                     selectedAlg === alg
                       ? 'border-blue-500 bg-blue-50 text-blue-600 dark:bg-purple-950/20 dark:border-purple-500 dark:text-purple-400'
-                      : 'border-transparent hover:bg-gray-50 dark:hover:bg-zinc-805 text-gray-700 dark:text-zinc-300'
+                      : 'border-transparent hover:bg-gray-50 dark:hover:bg-zinc-800 text-gray-700 dark:text-zinc-300'
                   }`}
                 >
                   {sortingConcepts[alg]?.title.split(' (')[0]}
@@ -797,7 +797,7 @@ export default function SortingVisualizer() {
                   className={`px-2.5 py-1 rounded transition-colors duration-100 ${
                     isTargetLine
                       ? 'bg-amber-500/20 text-amber-300 border-l-2 border-amber-500 font-bold'
-                      : 'text-zinc-450'
+                      : 'text-zinc-400'
                   }`}
                 >
                   <span className="inline-block w-4 text-right text-zinc-600 mr-3 text-[10px] select-none">

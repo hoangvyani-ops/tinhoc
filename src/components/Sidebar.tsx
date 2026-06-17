@@ -56,10 +56,10 @@ export default function Sidebar({
           </div>
           <div>
             <h1 className="text-md font-bold font-display tracking-tight text-white leading-tight">
-              ALGO-VISUAL
+              DSA - AI
             </h1>
-            <span className="text-[10px] text-slate-500 font-mono font-semibold">
-              Học DSA Trực Quan
+            <span className="text-[10px] text-slate-400 font-mono font-semibold block leading-normal mt-0.5">
+              Data Structures & Algorithms
             </span>
           </div>
         </div>
@@ -132,8 +132,11 @@ export default function Sidebar({
           </div>
           <div>
             <h1 className="text-sm font-bold font-display tracking-tight text-white leading-tight">
-              ALGO-VISUAL
+              DSA - AI
             </h1>
+            <span className="text-[9px] text-slate-400 block tracking-tight font-mono font-medium leading-none mt-0.5">
+              Data Structures & Algorithms
+            </span>
           </div>
         </div>
 

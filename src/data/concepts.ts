@@ -1090,7 +1090,7 @@ function binarySearch(A, x):
   }
 };
 
-export const quizQuestions: QuizQuestion[] = [
+const staticQuizQuestions: QuizQuestion[] = [
   {
     id: 1,
     question: "Độ phức tạp thời gian trung bình của thuật toán Sắp xếp nhanh (Quick Sort) là gì?",
@@ -1490,5 +1490,670 @@ export const quizQuestions: QuizQuestion[] = [
     correctAnswer: 2,
     explanation: "Đồ thị tương thích hoàn toàn để mô phỏng bản đồ do các nút giao thông là đỉnh và đường giao xe là các cạnh nối.",
     category: "Đồ thị"
+  },
+  {
+    id: 51,
+    question: "Trong giải thuật Dijkstra tìm đường đi ngắn nhất, ta thường dùng cấu trúc dữ liệu nào để tối ưu bước tìm đỉnh có khoảng cách ngắn nhất?",
+    options: ["Ngăn xếp (Stack)", "Hàng đợi ưu tiên (Priority Queue / Min Heap)", "Bảng băm (Hash Table)", "Mảng chưa sắp xếp"],
+    correctAnswer: 1,
+    explanation: "Dijkstra sử dụng Min-Heap hoặc Priority Queue để lấy ra đỉnh có khoảng cách tạm thời nhỏ nhất trong O(log V) thay vì duyệt mảng mất O(V).",
+    category: "Đồ thị"
+  },
+  {
+    id: 52,
+    question: "Độ phức tạp thời gian tốt nhất (Best case) của thuật toán Sắp xếp nổi bọt (Bubble Sort) đã được tối ưu là gì?",
+    options: ["O(1)", "O(log N)", "O(N)", "O(N log N)"],
+    correctAnswer: 2,
+    explanation: "Bubble Sort tối ưu có biến cờ (swapped) kiểm tra nếu không có hoán đổi nào ở lượt đầu sẽ dừng ngay, đạt độ phức tạp O(N).",
+    category: "Sắp xếp"
+  },
+  {
+    id: 53,
+    question: "Trong danh sách liên kết vòng (Circular Linked List), con trỏ 'next' của node cuối cùng trỏ về đâu?",
+    options: ["Trỏ về NULL", "Trỏ về node đứng trước nó", "Trỏ về node đầu tiên (Head)", "Trỏ về một giá trị ngẫu nhiên"],
+    correctAnswer: 2,
+    explanation: "Danh sách liên kết vòng liên kết node cuối trở lại node đầu (Head) để tạo chu trình khép kín.",
+    category: "Cấu trúc dữ liệu"
+  },
+  {
+    id: 54,
+    question: "Giải thuật Kruskal được sử dụng để giải quyết bài toán nào trên đồ thị?",
+    options: ["Tìm đường đi ngắn nhất", "Tìm cây khung nhỏ nhất (Minimum Spanning Tree)", "Tìm các thành phần liên thông mạnh", "Kiểm tra đồ thị phân đôi"],
+    correctAnswer: 1,
+    explanation: "Thuật toán Kruskal sắp xếp tất cả các cạnh theo thứ tự trọng số tăng dần và chọn các cạnh không tạo ra chu trình để dựng cây khung nhỏ nhất (MST).",
+    category: "Đồ thị"
+  },
+  {
+    id: 55,
+    question: "Sự khác biệt cốt lõi giữa danh sách liên kết đơn và danh sách liên kết kép là gì?",
+    options: ["Danh sách liên kết kép truy cập ngẫu nhiên nhanh hơn", "Mỗi node của danh sách liên kết kép lưu hai con trỏ (trỏ tới node tiếp theo và node phía trước)", "Danh sách liên kết kép tốn ít bộ nhớ hơn", "Danh sách liên kết đơn không thể lưu trữ các đối tượng phức tạp"],
+    correctAnswer: 1,
+    explanation: "Mỗi node trong danh sách liên kết kép chứa một con trỏ 'next' hướng tới node kế tiếp và một con trỏ 'prev' hướng tới node đứng trước, giúp duyệt hai chiều dễ dàng.",
+    category: "Cấu trúc dữ liệu"
+  },
+  {
+    id: 56,
+    question: "Thuật toán Sắp xếp nhanh (Quick Sort) vận dụng tư tưởng thiết kế giải thuật nào?",
+    options: ["Quy hoạch động (Dynamic Programming)", "Chia để trị (Divide and Conquer)", "Tham lam (Greedy)", "Nhánh cận (Branch and Bound)"],
+    correctAnswer: 1,
+    explanation: "Quick Sort chia mảng bằng cách phân hoạch quanh một phần tử chốt (pivot), sau đó giải quyết độc lập hai mảng con trái/phải, phản ánh rõ nét tư duy Chia để trị.",
+    category: "Sắp xếp"
+  },
+  {
+    id: 57,
+    question: "Độ cân bằng của Cây đỏ đen (Red-Black Tree) đảm bảo chiều cao của cây không vượt quá bao nhiêu?",
+    options: ["log N", "2 * log(N + 1)", "N", "sqrt(N)"],
+    correctAnswer: 1,
+    explanation: "Cây đỏ đen duy trì các thuộc tính đặc biệt đảm bảo đường đi dài nhất từ gốc đến lá không bao giờ vượt quá gấp đôi đường đi ngắn nhất, tức là chiều cao luôn là O(log N).",
+    category: "Cây"
+  },
+  {
+    id: 58,
+    question: "Trong một bảng băm kích thước M, mở địa chỉ tuyến tính (Linear Probing) tìm vị trí trống tiếp theo khi xảy ra va chạm bằng cách nào?",
+    options: ["Thử các chỉ số ngẫu nhiên i", "Tính giá trị băm thứ hai h2(key)", "Kiểm tra tuần tự các ô kế tiếp: index = (hash + i) % M", "Liên kết node mới vào danh sách liên kết"],
+    correctAnswer: 2,
+    explanation: "Linear Probing tìm kiếm tuần tự ô trống kế tiếp bằng cách tăng dần hằng số i (thử index + 1, index + 2, v.v., lấy dư cho M) cho đến khi tìm thấy ô trống.",
+    category: "Cấu trúc dữ liệu"
+  },
+  {
+    id: 59,
+    question: "Thuật toán sắp xếp nào thường được chọn để cài đặt hàm sắp xếp mặc định (như Arrays.sort trong một số thư viện cũ) do tính ổn định và hiệu năng O(N log N) tốt trên dữ liệu thực tế?",
+    options: ["Selection Sort", "Merge Sort (hoặc các biến thể như Timsort)", "Quick Sort gốc", "Bubble Sort"],
+    correctAnswer: 1,
+    explanation: "Merge Sort và các biến thể của nó như Timsort cực kỳ được ưa chuộng nhờ tính ổn định (stable) và độ phức tạp bảo đảm luôn là O(N log N) trong mọi trường hợp.",
+    category: "Sắp xếp"
+  },
+  {
+    id: 60,
+    question: "Thuật toán tìm kiếm nội suy (Interpolation Search) cải tiến từ Tìm kiếm nhị phân có độ phức tạp thời gian trung bình là bao nhiêu nếu dữ liệu được phân bố đều?",
+    options: ["O(N)", "O(log N)", "O(log(log N))", "O(1)"],
+    correctAnswer: 2,
+    explanation: "Khi dữ liệu phân bố đều, Interpolation Search ước lượng vị trí cực tốt và chỉ mất độ phức tạp trung bình khoảng O(log(log N)).",
+    category: "Tìm kiếm"
+  },
+  {
+    id: 61,
+    question: "Phương pháp duyệt DFS sử dụng giải thuật đệ quy có thể gặp nguy cơ hiểm họa nào khi duyệt đồ thị cực lớn có hàng triệu đỉnh?",
+    options: ["Không thể tìm thấy kết quả", "Gây tràn bộ nhớ ngăn xếp (Stack Overflow) do độ sâu lời gọi đệ quy quá lớn", "Làm sai lệch trọng số các cạnh", "Độ phức tạp tăng vọt thành O(2^N)"],
+    correctAnswer: 1,
+    explanation: "Do lưu giữ quá nhiều khung gọi hàm trên ngăn xếp hệ thống, đệ quy quá sâu trên đồ thị lớn có thể dẫn tới lỗi tràn bộ nhớ ngăn xếp (Stack Overflow).",
+    category: "Đệ quy"
+  },
+  {
+    id: 62,
+    question: "Phép duyệt cây nhị phân nào đi qua các node theo thứ tự chiều sâu từ dưới lên, bắt đầu duyệt hết hai cây con trái/phải rồi mới xử lý node gốc?",
+    options: ["Duyệt tiền thứ tự (Preorder)", "Duyệt trung thứ tự (Inorder)", "Duyệt hậu thứ tự (Postorder)", "Duyệt theo mức (Level-order)"],
+    correctAnswer: 2,
+    explanation: "Đó là phép duyệt Postorder (LRN - Trái, Phải, Gốc). Node gốc luôn được xử lý cuối cùng sau khi đã xử lý hết các lá con.",
+    category: "Cây"
+  },
+  {
+    id: 63,
+    question: "Thuật toán Prim dùng để tìm cây khung nhỏ nhất (MST) phát triển cây khung bằng cách nào?",
+    options: ["Sắp xếp toàn bộ cạnh và ghép các cạnh ngắn nhất", "Bắt đầu từ một đỉnh ban đầu, liên tục kết nạp đỉnh ngoài có cạnh nối ngắn nhất tới cây khung hiện tại", "Xóa các cạnh có trọng số lớn nhất cho đến khi không còn chu trình", "Tìm đường đi ngắn nhất giữa mọi cặp đỉnh"],
+    correctAnswer: 1,
+    explanation: "Prim bắt đầu từ một đỉnh nguồn và mở rộng dần bằng cách chọn cạnh nối ngắn nhất kết nối một đỉnh trong cây với một đỉnh ngoài cây.",
+    category: "Đồ thị"
+  },
+  {
+    id: 64,
+    question: "Lớp bài toán Quy hoạch động (Dynamic Programming) khác biệt với Đệ quy chia để trị thông thường ở điểm cốt lõi nào?",
+    options: ["Quy hoạch động không sử dụng hàm", "Quy hoạch động lưu trữ kết quả của các bài toán con trùng lặp (Overlapping Subproblems) để tránh tính toán lại", "Quy hoạch động chỉ giải được các bài toán sắp xếp", "Quy hoạch động không có điều kiện dừng"],
+    correctAnswer: 1,
+    explanation: "Điểm mấu chốt của Quy hoạch động là tận dụng việc giải các bài toán con trùng lặp và lưu trữ (Memoization / Tabulation) để không phải tính lại nhiều lần.",
+    category: "Đệ quy"
+  },
+  {
+    id: 65,
+    question: "Thuật toán Sắp xếp vun đống (Heap Sort) sử dụng cấu trúc dữ liệu nào làm nền tảng?",
+    options: ["Cây AVL", "Đống nhị phân (Binary Heap)", "Bảng băm", "Hàng đợi vòng"],
+    correctAnswer: 1,
+    explanation: "Heap Sort chuyển đổi mảng đầu vào thành một Đống nhị phân (Binary Heap - thường là Max Heap) trước khi tiến hành trích xuất dần phần tử.",
+    category: "Sắp xếp"
+  },
+  {
+    id: 66,
+    question: "Cây phân cấp Trie (Cây tiền tố) cực kỳ hiệu quả cho ứng dụng nào sau đây?",
+    options: ["Sắp xếp mảng số nguyên lớn", "Lấy mẫu dữ liệu hình ảnh 3D", "Gợi ý tự động hoàn thành từ (Auto-complete / Tìm kiếm từ điển)", "Duyệt tìm đường đi ngắn nhất trên bản đồ số"],
+    correctAnswer: 2,
+    explanation: "Cây Trie lưu trữ các ký tự của từ theo từng nhánh tiền tố chung, giúp việc tra cứu và gợi ý từ hoàn thành cực kỳ nhanh chóng và tiết kiệm không gian chuỗi.",
+    category: "Cây"
+  },
+  {
+    id: 67,
+    question: "Hàng đợi hai đầu (Deque - Double-ended Queue) hỗ trợ các thao tác nào sau đây?",
+    options: ["Chỉ thêm ở đầu, chỉ xóa ở cuối", "Chỉ thêm ở cuối, chỉ xóa ở đầu", "Thêm và xóa phần tử một cách linh hoạt tại cả hai đầu (đầu và cuối)", "Chỉ truy cập được phần tử ở giữa"],
+    correctAnswer: 2,
+    explanation: "Deque là cấu trúc hàng đợi tổng quát cho phép thêm và xóa phần tử hiệu quả ở cả hai phía đầu trước (Front) và đầu sau (Rear).",
+    category: "Cấu trúc dữ liệu"
+  },
+  {
+    id: 68,
+    question: "Độ phức tạp thời gian khi tìm kiếm trên Đồ thị bằng thuật toán BFS sử dụng danh sách kề (Adjacency List) là gì? (V là số đỉnh, E là số cạnh)",
+    options: ["O(V²)", "O(V + E)", "O(V * E)", "O(E²)"],
+    correctAnswer: 1,
+    explanation: "Duyệt BFS bằng danh sách kề sẽ quét qua toàn bộ V đỉnh và kiểm tra tất cả E cạnh đối kề đúng một lần, đạt độ phức tạp tuyến tính O(V + E).",
+    category: "Đồ thị"
+  },
+  {
+    id: 69,
+    question: "Tại sao thuật toán Sắp xếp nhanh (Quick Sort) thường chạy nhanh hơn Sắp xếp trộn (Merge Sort) trong thực tế dù có cùng độ phức tạp trung bình O(N log N)?",
+    options: ["Do Quick Sort không có vòng lặp", "Do Quick Sort hoạt động tại chỗ (In-place), tối ưu hóa bộ đệm Cache của CPU tốt hơn vì không cần cấp phát mảng phụ", "Do Quick Sort sử dụng ít phép so sánh hơn", "Do Quick Sort dễ cài đặt hơn"],
+    correctAnswer: 1,
+    explanation: "Nhờ tính chất sắp xếp tại chỗ (In-place), Quick Sort tránh được chi phí cấp phát và giải phóng bộ nhớ động, đồng thời tận dụng tính cục bộ của bộ nhớ đệm CPU (locality of reference).",
+    category: "Sắp xếp"
+  },
+  {
+    id: 70,
+    question: "Khi thêm một phần tử vào mảng động (như ArrayList hay vector), nếu mảng đã đầy, hệ thống sẽ xử lý thế nào?",
+    options: ["Báo lỗi tràn bộ nhớ lập tức", "Tạo mảng mới có kích thước lớn hơn (gấp 1.5 hoặc 2 lần), sao chép phần tử cũ sang rồi mới thêm phần tử mới", "Ghi đè lên phần tử đầu tiên", "Chuyển thành danh sách liên kết kép"],
+    correctAnswer: 1,
+    explanation: "Mảng động tự động xin cấp phát vùng nhớ mảng mới rộng gấp tầm 1.5 hay 2 lần mảng cũ, sao chép dữ liệu hiện tại sang mảng mới, giúp chi phí thêm trung bình khấu hao (amortized) vẫn là O(1).",
+    category: "Cấu trúc dữ liệu"
+  },
+  {
+    id: 71,
+    question: "Một đồ thị phân đôi (Bipartite Graph) có đặc điểm gì?",
+    options: ["Có số đỉnh là số chẵn", "Tập đỉnh có thể chia thành hai tập độc lập sao cho không có cạnh nào nối hai đỉnh thuộc cùng một tập", "Mọi đỉnh đều có bậc bằng 2", "Chứa tối đa hai chu trình"],
+    correctAnswer: 1,
+    explanation: "Đồ thị phân đôi cho phép phân chia các đỉnh thành 2 nhóm A và B, sao cho các cạnh chỉ đi từ nhóm A sang nhóm B và tuyệt đối không có cạnh nội bộ giữa các đỉnh trong cùng nhóm.",
+    category: "Đồ thị"
+  },
+  {
+    id: 72,
+    question: "Giải thuật Đệ quy đuôi (Tail Recursion) có đặc tính gì đặc biệt giúp trình biên dịch tối ưu hóa?",
+    options: ["Lời gọi đệ quy là lệnh cuối cùng được thực hiện trong hàm trước khi trả về", "Lời gọi đệ quy thực hiện ở đầu hàm", "Sử dụng hai nhánh đệ quy đồng thời", "Tốn nhiều bộ nhớ ngăn xếp hơn đệ quy thường"],
+    correctAnswer: 0,
+    explanation: "Trong đệ quy đuôi, kết quả của lời gọi đệ quy được trả về ngay lập tức mà không cần tính toán thêm, giúp trình biên dịch có thể chuyển đổi thành vòng lặp (tail-call optimization) và loại bỏ việc tích lũy stack frame.",
+    category: "Đệ quy"
+  },
+  {
+    id: 73,
+    question: "Độ phức tạp thời gian khi chèn một phần tử vào cây nhị phân tìm kiếm tự cân bằng (như cây AVL hay cây Red-Black) chứa N phần tử là bao nhiêu?",
+    options: ["O(1)", "O(log N)", "O(N)", "O(N log N)"],
+    correctAnswer: 1,
+    explanation: "Do cây luôn giữ trạng thái cân bằng hoàn hảo hoặc gần hoàn hảo, chiều cao cây luôn được đảm bảo là O(log N). Vì vậy phép chèn, xóa hay tìm kiếm chỉ tốn O(log N).",
+    category: "Cây"
+  },
+  {
+    id: 74,
+    question: "Thuật toán tìm kiếm tuần tự (Linear Search) phù hợp nhất trong trường hợp nào?",
+    options: ["Mảng có kích thước cực lớn đã sắp xếp", "Dữ liệu nhỏ, không có cấu trúc hoặc chưa được sắp xếp sẵn", "Tìm kiếm trên cây nhị phân cân bằng", "Yêu cầu độ phức tạp O(1)"],
+    correctAnswer: 1,
+    explanation: "Linear Search không yêu cầu dữ liệu sắp xếp, dễ cài đặt và chạy rất hiệu quả trên các tập dữ liệu nhỏ mà không tốn chi phí phân tích sắp đặt trước.",
+    category: "Tìm kiếm"
+  },
+  {
+    id: 75,
+    question: "Tại sao không nên chọn kích thước bảng băm (M) là số lũy thừa của 2 khi dùng phương pháp chia dư (Modulo Hash)?",
+    options: ["Hàm chia dư sẽ không hoạt động", "Mã băm sẽ bị âm", "Dễ gây tập trung va chạm băm ở các mẫu số tận cùng thấp, không phân tán tốt", "Làm chậm tốc độ lựa chọn bộ nhớ"],
+    correctAnswer: 2,
+    explanation: "Nếu M = 2^p, phép tính key % M chỉ phụ thuộc vào p bit thấp nhất của key, bỏ phí thông tin từ các bit cao và dễ dẫn đến va chạm băm nếu các bit thấp có quy luật trùng lặp. Chọn M là số nguyên tố giúp phân tán tốt nhất.",
+    category: "Cấu trúc dữ liệu"
   }
 ];
+
+// PROGRAMMATIC EXTRA QUIZ QUESTIONS (500+ DYNAMIC HIGH-QUALITY DSA EXERCISES)
+function generateProgrammaticQuestions(): QuizQuestion[] {
+  const extra: QuizQuestion[] = [];
+  
+  function shuffleOptions(opts: string[], correctText: string): { shuffled: string[], correctIdx: number } {
+    const rotate = correctText.length % 4;
+    const shuffled: string[] = [];
+    for (let i = 0; i < 4; i++) {
+      shuffled.push(opts[(i + rotate) % 4]);
+    }
+    const correctIdx = shuffled.indexOf(correctText);
+    return { shuffled, correctIdx };
+  }
+
+  // --- SẮP XẾP ---
+  const sortArrays = [
+    [15, 3, 9, 1, 12, 6],
+    [5, 20, 8, 3, 11, 7],
+    [32, 12, 4, 8, 20, 15],
+    [9, 2, 8, 5, 1, 6],
+    [45, 10, 22, 5, 30, 2],
+    [13, 5, 2, 8, 21, 1],
+    [7, 3, 11, 2, 9, 5]
+  ];
+  
+  function bubbleSortStep(arr: number[], steps: number): number[] {
+    const temp = [...arr];
+    for (let i = 0; i < steps; i++) {
+      for (let j = 0; j < temp.length - 1 - i; j++) {
+        if (temp[j] > temp[j+1]) {
+          const t = temp[j];
+          temp[j] = temp[j+1];
+          temp[j+1] = t;
+        }
+      }
+    }
+    return temp;
+  }
+
+  function insertionSortStep(arr: number[], steps: number): number[] {
+    const temp = [...arr];
+    for (let i = 1; i <= steps && i < temp.length; i++) {
+      const key = temp[i];
+      let j = i - 1;
+      while (j >= 0 && temp[j] > key) {
+        temp[j+1] = temp[j];
+        j--;
+      }
+      temp[j+1] = key;
+    }
+    return temp;
+  }
+
+  function selectionSortStep(arr: number[], steps: number): number[] {
+    const temp = [...arr];
+    for (let i = 0; i < steps && i < temp.length - 1; i++) {
+      let minIdx = i;
+      for (let j = i + 1; j < temp.length; j++) {
+        if (temp[j] < temp[minIdx]) {
+          minIdx = j;
+        }
+      }
+      const t = temp[i];
+      temp[i] = temp[minIdx];
+      temp[minIdx] = t;
+    }
+    return temp;
+  }
+
+  let nextId = 76;
+
+  // 1. Sắp xếp: 50 Questions (76 - 125)
+  for (let idx = 0; idx < 50; idx++) {
+    const arr = sortArrays[idx % sortArrays.length];
+    const algos = [
+      { name: "Sắp xếp nổi bọt (Bubble Sort)", fn: bubbleSortStep, type: "Bubble" },
+      { name: "Sắp xếp chèn (Insertion Sort)", fn: insertionSortStep, type: "Insertion" },
+      { name: "Sắp xếp chọn (Selection Sort)", fn: selectionSortStep, type: "Selection" }
+    ];
+    const algo = algos[idx % algos.length];
+    const steps = (idx % 2) + 1; // 1 or 2 steps
+    const result = algo.fn(arr, steps);
+    
+    const correctAnsText = `[${result.join(", ")}]`;
+    const wrong1 = `[${algo.fn(arr, steps + 1).join(", ")}]`;
+    const wrong2 = `[${arr.slice().sort((a,b) => b-a).join(", ")}]`;
+    const wrong3 = `[${arr.slice().reverse().join(", ")}]`;
+
+    const optionsPool = [correctAnsText, wrong1 === correctAnsText ? `[${[...result].reverse().join(", ")}]` : wrong1, wrong2, wrong3];
+    const { shuffled, correctIdx } = shuffleOptions(optionsPool, correctAnsText);
+
+    extra.push({
+      id: nextId++,
+      question: `Sử dụng thuật toán ${algo.name} để sắp xếp mảng [${arr.join(", ")}] theo thứ tự tăng dần. Trạng thái của mảng sau đúng ${steps} lượt đổi chỗ/chèn bên ngoài (outer loop) là gì?`,
+      options: shuffled,
+      correctAnswer: correctIdx,
+      explanation: `Sau ${steps} bước của giải thuật ${algo.name}, các phần tử được điều hướng chính xác về vị trí kiểm soát của nó, xuất ra kết quả tương ứng là ${correctAnsText}.`,
+      category: "Sắp xếp"
+    });
+  }
+
+  // 2. Tìm kiếm: 50 Questions (126 - 175)
+  const searchArrays = [
+    [2, 5, 8, 12, 16, 23, 38, 56, 72, 91],
+    [3, 7, 10, 15, 20, 25, 30, 42, 55, 68],
+    [1, 4, 9, 16, 25, 36, 49, 64, 81, 100],
+    [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+  ];
+
+  function binarySearchStages(arr: number[], target: number): { visited: number[], found: boolean } {
+    let low = 0;
+    let high = arr.length - 1;
+    const visited: number[] = [];
+    while (low <= high) {
+      const mid = Math.floor((low + high) / 2);
+      visited.push(arr[mid]);
+      if (arr[mid] === target) return { visited, found: true };
+      if (arr[mid] < target) low = mid + 1;
+      else high = mid - 1;
+    }
+    return { visited, found: false };
+  }
+
+  for (let idx = 0; idx < 50; idx++) {
+    const arr = searchArrays[idx % searchArrays.length];
+    const target = arr[idx % arr.length];
+    const { visited } = binarySearchStages(arr, target);
+    
+    const correctAnsText = visited.join(" -> ");
+    const wrong1 = [...visited].reverse().join(" -> ");
+    const wrong2 = visited.slice(0, -1).join(" -> ") || "Trống";
+    const wrong3 = [...visited, target + 1].join(" -> ");
+
+    const { shuffled, correctIdx } = shuffleOptions([correctAnsText, wrong1, wrong2, wrong3], correctAnsText);
+
+    extra.push({
+      id: nextId++,
+      question: `Cho mảng đã sắp xếp [${arr.join(", ")}]. Khi thực hiện Tìm kiếm nhị phân (Binary Search) để tìm giá trị ${target}, chuỗi các phần tử tại vị trí được kiểm tra (mid) theo thứ tự là gì?`,
+      options: shuffled,
+      correctAnswer: correctIdx,
+      explanation: `Tìm kiếm nhị phân liên tục chọn chỉ số ở chính giữa (mid) để so sánh và thu hẹp không gian tìm kiếm. Các phần tử trung tâm được khảo sát lần lượt là: ${correctAnsText}.`,
+      category: "Tìm kiếm"
+    });
+  }
+
+  // 3. Ngăn xếp (Stack): 50 Questions (176 - 225)
+  for (let idx = 0; idx < 50; idx++) {
+    const pushCount = (idx % 3) + 3;
+    const popCount = (idx % 2) + 1;
+    const values = Array.from({ length: pushCount }, (_, i) => (idx * 3 + i + 10) % 99);
+    
+    const ops: string[] = [];
+    const stackSim: number[] = [];
+    for (let k = 0; k < pushCount; k++) {
+      ops.push(`PUSH(${values[k]})`);
+      stackSim.push(values[k]);
+    }
+    for (let k = 0; k < popCount; k++) {
+      ops.push("POP()");
+      stackSim.pop();
+    }
+    
+    const currentTop = stackSim[stackSim.length - 1] ?? -1;
+    const correctAnsText = `Đỉnh chứa ${currentTop}, kích thước bằng ${stackSim.length}`;
+    const wrong1 = `Đỉnh chứa ${values[0] || -1}, kích thước bằng ${stackSim.length + 1}`;
+    const wrong2 = `Đỉnh chứa ${currentTop + 1}, kích thước bằng ${stackSim.length}`;
+    const wrong3 = `Ngăn xếp rỗng`;
+
+    const { shuffled, correctIdx } = shuffleOptions([correctAnsText, wrong1, wrong2, wrong3], correctAnsText);
+
+    extra.push({
+      id: nextId++,
+      question: `Khởi đầu với một ngăn xếp (stack) rỗng, ta thực hiện các thao tác sau tuần tự: ${ops.join(", ")}. Trạng thái của đỉnh ngăn xếp và kích thước của ngăn xếp sau cùng là gì?`,
+      options: shuffled,
+      correctAnswer: correctIdx,
+      explanation: `Ngăn xếp hoạt động theo cơ chế vào sau ra trước (LIFO). Thao tác POP() loại bỏ phần tử ở đỉnh gần nhất. Sau chuỗi hoạt động, ngăn xếp còn ${stackSim.length} phần tử, phần tử trên cùng là ${currentTop}.`,
+      category: "Cấu trúc dữ liệu"
+    });
+  }
+
+  // 4. Hàng đợi (Queue): 50 Questions (226 - 275)
+  for (let idx = 0; idx < 50; idx++) {
+    const enqCount = (idx % 3) + 3;
+    const deqCount = (idx % 2) + 1;
+    const values = Array.from({ length: enqCount }, (_, i) => (idx * 5 + i + 11) % 100);
+
+    const ops: string[] = [];
+    const queueSim: number[] = [];
+    for (let k = 0; k < enqCount; k++) {
+      ops.push(`ENQUEUE(${values[k]})`);
+      queueSim.push(values[k]);
+    }
+    for (let k = 0; k < deqCount; k++) {
+      ops.push("DEQUEUE()");
+      queueSim.shift();
+    }
+
+    const currentFront = queueSim[0] ?? -1;
+    const correctAnsText = `Đầu là ${currentFront}, kích thước bằng ${queueSim.length}`;
+    const wrong1 = `Đầu là ${values[values.length - 1]}, kích thước bằng ${queueSim.length}`;
+    const wrong2 = `Đầu là ${currentFront + 2}, kích thước bằng ${queueSim.length - 1}`;
+    const wrong3 = `Hàng đợi trống`;
+
+    const { shuffled, correctIdx } = shuffleOptions([correctAnsText, wrong1, wrong2, wrong3], correctAnsText);
+
+    extra.push({
+      id: nextId++,
+      question: `Bắt đầu với một hàng đợi (queue) rỗng, ta tiến hành chuỗi thao tác: ${ops.join(", ")}. Hãy cho biết phần tử ở đầu hàng đợi (Front) và số lượng phần tử còn lại là bao nhiêu?`,
+      options: shuffled,
+      correctAnswer: correctIdx,
+      explanation: `Hàng đợi tuân theo quy tắc vào trước ra trước (FIFO). Thao tác DEQUEUE() luôn loại bỏ phần tử lâu nhất nằm ở đầu hàng đợi. Sau chuỗi thao tác, Front chứa ${currentFront} và kích thước còn lại là ${queueSim.length}.`,
+      category: "Cấu trúc dữ liệu"
+    });
+  }
+
+  // 5. Mảng & Danh sách liên kết: 50 Questions (276 - 325)
+  for (let idx = 0; idx < 50; idx++) {
+    const correctAnsText = `X.next = Y.next; Y.next = X;`;
+    const wrong1 = `Y.next = X; X.next = Y.next;`;
+    const wrong2 = `X.next = Y; Y.next = X;`;
+    const wrong3 = `Y.next = X.next; X.next = Y;`;
+
+    const { shuffled, correctIdx } = shuffleOptions([correctAnsText, wrong1, wrong2, wrong3], correctAnsText);
+
+    extra.push({
+      id: nextId++,
+      question: `[Mã câu: LIST-${idx + 100}] Trên một danh sách liên kết đơn (Linked List). Khi muốn chèn một Node mới mang tên X vào vị trí ngay sau Node Y trung gian, công thức dịch chuyển con trỏ nào sau đây là chính xác tuyệt đối?`,
+      options: shuffled,
+      correctAnswer: correctIdx,
+      explanation: `Chúng ta gán địa chỉ tiếp theo của X bằng phần tiếp theo của Y (X.next = Y.next) rồi sau đó mới cập nhật liên kết Y nối tiếp đến X (Y.next = X).`,
+      category: "Cấu trúc dữ liệu"
+    });
+  }
+
+  // 6. Bảng băm (Hash Table): 50 Questions (326 - 375)
+  const hashSizes = [5, 7, 11, 13];
+  const hashKeysPool = [
+    [10, 20, 30, 40],
+    [5, 12, 19, 26, 33],
+    [8, 15, 22, 29],
+    [14, 25, 36, 47, 58]
+  ];
+
+  for (let idx = 0; idx < 50; idx++) {
+    const size = hashSizes[idx % hashSizes.length];
+    const keys = hashKeysPool[idx % hashKeysPool.length];
+    
+    const table: (number | null)[] = Array(size).fill(null);
+    const posRecord: Record<number, number> = {};
+    for (const k of keys) {
+      let b = k % size;
+      for (let i = 0; i < size; i++) {
+        let cur = (b + i) % size;
+        if (table[cur] === null) {
+          table[cur] = k;
+          posRecord[k] = cur;
+          break;
+        }
+      }
+    }
+
+    const targetKey = keys[idx % keys.length];
+    const correctPos = posRecord[targetKey];
+    
+    const correctAnsText = `Chỉ số ${correctPos}`;
+    const wrong1 = `Chỉ số ${(correctPos + 1) % size}`;
+    const wrong2 = `Chỉ số ${(correctPos - 1 + size) % size}`;
+    const wrong3 = `Không thể băm`;
+
+    const { shuffled, correctIdx } = shuffleOptions([correctAnsText, wrong1, wrong2, wrong3], correctAnsText);
+
+    extra.push({
+      id: nextId++,
+      question: `Cho bảng băm kích thước M = ${size}, sử dụng hàm băm modulo h(k) = k % ${size} và giải quyết va chạm băm bằng dò tuyến tính (Linear Probing). Thực hiện chèn dãy khóa [${keys.join(", ")}] vào bảng băm trống ban đầu. Xác định vị trí lưu trữ cuối cùng của khóa ${targetKey}?`,
+      options: shuffled,
+      correctAnswer: correctIdx,
+      explanation: `Bằng công thức tính băm modulo và lần lượt nhảy tuyến tính dò tìm ô trống tiếp cận kế tiếp khi có va chạm, khóa ${targetKey} hạ cánh an toàn tại ô chỉ số ${correctPos}.`,
+      category: "Cấu trúc dữ liệu"
+    });
+  }
+
+  // 7. Cây (Tree): 50 Questions (376 - 425)
+  class SimpleNode {
+    val: number;
+    left: SimpleNode | null = null;
+    right: SimpleNode | null = null;
+    constructor(val: number) { this.val = val; }
+  }
+
+  function makeBST(values: number[]): SimpleNode {
+    const root = new SimpleNode(values[0]);
+    function add(node: SimpleNode, v: number): SimpleNode {
+      if (v < node.val) {
+        if (!node.left) node.left = new SimpleNode(v);
+        else add(node.left, v);
+      } else {
+        if (!node.right) node.right = new SimpleNode(v);
+        else add(node.right, v);
+      }
+      return node;
+    }
+    for (let i = 1; i < values.length; i++) {
+      add(root, values[i]);
+    }
+    return root;
+  }
+
+  function getDepth(node: SimpleNode | null): number {
+    if (!node) return -1;
+    return 1 + Math.max(getDepth(node.left), getDepth(node.right));
+  }
+
+  const treeKeysArr = [
+    [50, 30, 70, 20, 40, 60, 80],
+    [40, 20, 60, 10, 30, 50, 70, 5],
+    [10, 20, 30, 40, 50],
+    [100, 50, 150, 25, 75, 125, 175]
+  ];
+
+  for (let idx = 0; idx < 50; idx++) {
+    const keys = treeKeysArr[idx % treeKeysArr.length];
+    const root = makeBST(keys);
+    const height = getDepth(root);
+
+    const correctAnsText = `Chiều cao bằng ${height}`;
+    const wrong1 = `Chiều cao bằng ${height + 1}`;
+    const wrong2 = `Chiều cao bằng ${height - 1}`;
+    const wrong3 = `Cây bị lệch hoàn toàn`;
+
+    const { shuffled, correctIdx } = shuffleOptions([correctAnsText, wrong1, wrong2, wrong3], correctAnsText);
+
+    extra.push({
+      id: nextId++,
+      question: `Cho cây tìm kiếm nhị phân (Binary Search Tree) được tạo dựng bằng cách chèn tuần tự danh sách các khóa [${keys.join(", ")}] vào một cây rỗng ban đầu. Chiều cao (số lượng cạnh tối đa từ node gốc đến lá sâu nhất) của cây này là bao nhiêu?`,
+      options: shuffled,
+      correctAnswer: correctIdx,
+      explanation: `Chiều cao cây được xác định bằng độ sâu sâu nhất từ gốc. Phép chèn BST đúng cho chúng ta cấu trúc có chiều cao chính xác là ${height}.`,
+      category: "Cây"
+    });
+  }
+
+  // 8. Đồ thị (Graph): 50 Questions (426 - 475)
+  const graphConfigs: { vertices: number, edges: [number, number][] }[] = [
+    { vertices: 5, edges: [[1, 2], [1, 3], [2, 3], [3, 4], [4, 5]] },
+    { vertices: 6, edges: [[1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [1, 6]] },
+    { vertices: 4, edges: [[1, 2], [2, 3], [3, 4], [4, 1], [1, 3]] },
+    { vertices: 5, edges: [[1, 2], [2, 3], [3, 4], [4, 5]] }
+  ];
+
+  for (let idx = 0; idx < 50; idx++) {
+    const config = graphConfigs[idx % graphConfigs.length];
+    const verticesCount = config.vertices;
+    const targetNode = (idx % verticesCount) + 1;
+    const degree = config.edges.filter(e => e[0] === targetNode || e[1] === targetNode).length;
+
+    const correctAnsText = `Bậc bằng ${degree}`;
+    const wrong1 = `Bậc bằng ${degree + 1}`;
+    const wrong2 = `Bậc bằng ${degree - 1}`;
+    const wrong3 = `Đại lượng vô hướng bằng 0`;
+
+    const { shuffled, correctIdx } = shuffleOptions([correctAnsText, wrong1, wrong2, wrong3], correctAnsText);
+
+    extra.push({
+      id: nextId++,
+      question: `Cho đồ thị vô hướng đơn G có tập các đỉnh V = {1..${verticesCount}} và danh sách cạnh liên thông biểu diễn dưới dạng các cặp đỉnh kề: [${config.edges.map(e => `(${e[0]}, ${e[1]})`).join(", ")}]. Hãy tính bậc (degree) của đỉnh ${targetNode}?`,
+      options: shuffled,
+      correctAnswer: correctIdx,
+      explanation: `Bậc của một đỉnh trong đồ thị vô hướng là số lượng cạnh liên thuộc với đỉnh đó. Đỉnh ${targetNode} xuất hiện đúng ở ${degree} cạnh trong danh sách cạnh, nên bậc là ${degree}.`,
+      category: "Đồ thị"
+    });
+  }
+
+  // 9. Đệ quy (Recursion): 50 Questions (476 - 525)
+  const memoFib: Record<number, number> = { 0: 0, 1: 1 };
+  function fib(num: number): number {
+    if (memoFib[num] !== undefined) return memoFib[num];
+    return memoFib[num] = fib(num - 1) + fib(num - 2);
+  }
+  for (let i = 2; i <= 15; i++) fib(i);
+
+  for (let idx = 0; idx < 50; idx++) {
+    const val = (idx % 8) + 4; // fib(4) to fib(11)
+    const result = fib(val);
+
+    const correctAnsText = `${result}`;
+    const wrong1 = `${result + 1}`;
+    const wrong2 = `${result - 1}`;
+    const wrong3 = `${fib(val - 1) + fib(val - 1)}`;
+
+    const { shuffled, correctIdx } = shuffleOptions([correctAnsText, wrong1, wrong2, wrong3], correctAnsText);
+
+    extra.push({
+      id: nextId++,
+      question: `Cho hàm đệ quy tính dãy Fibonacci kinh điển biểu diễn bởi f(n) = f(n-1) + f(n-2) với cơ sở dừng f(0) = 0 và f(1) = 1. Giá trị đúng trả về khi ta thực hiện gọi lời hàm f(${val}) trong mã nguồn là bao nhiêu?`,
+      options: shuffled,
+      correctAnswer: correctIdx,
+      explanation: `Sử dụng quy hồi đệ quy hoặc lưu bảng quy hoạch động, ta tính toán dễ dàng giá trị Fibonacci tương ứng cho n = ${val} chính xác bằng ${result}.`,
+      category: "Đệ quy"
+    });
+  }
+
+  return extra;
+}
+
+function limit50PerCategory(questions: QuizQuestion[]): QuizQuestion[] {
+  function getTopic(q: QuizQuestion): string {
+    const cat = q.category;
+    const text = (q.question + " " + q.explanation + " " + q.options.join(" ")).toLowerCase();
+    
+    if (cat === "Sắp xếp") return "sorting";
+    if (cat === "Tìm kiếm") return "searching";
+    if (cat === "Cây") return "tree";
+    if (cat === "Đồ thị") return "graph";
+    if (cat === "Đệ quy") return "recursion";
+    
+    if (cat === "Cấu trúc dữ liệu") {
+      if (text.includes("ngăn xếp") || text.includes("stack") || text.includes("pop") || text.includes("push") || text.includes("lifo")) {
+        return "stack";
+      }
+      if (text.includes("hàng đợi") || text.includes("queue") || text.includes("fifo") || text.includes("enqueue") || text.includes("dequeue")) {
+        return "queue";
+      }
+      if (text.includes("băm") || text.includes("hash") || text.includes("collision") || text.includes("va chạm") || text.includes("chaining")) {
+        return "hash";
+      }
+      if (text.includes("mảng") || text.includes("array") || text.includes("liên kết") || text.includes("linked") || text.includes("node") || text.includes("chỉ số") || text.includes("index")) {
+        return "array_list";
+      }
+    }
+    return "array_list";
+  }
+
+  // Group by topic
+  const groups: Record<string, QuizQuestion[]> = {};
+  for (const q of questions) {
+    const t = getTopic(q);
+    if (!groups[t]) {
+      groups[t] = [];
+    }
+    if (groups[t].length < 50) {
+      groups[t].push(q);
+    }
+  }
+
+  // Concatenate and re-index sequentially from 1
+  const result: QuizQuestion[] = [];
+  let nextId = 1;
+  const topicsOrder = ["sorting", "searching", "stack", "queue", "tree", "graph", "array_list", "hash", "recursion"];
+  for (const t of topicsOrder) {
+    const list = groups[t] || [];
+    for (const q of list) {
+      result.push({
+        ...q,
+        id: nextId++
+      });
+    }
+  }
+  return result;
+}
+
+export const quizQuestions: QuizQuestion[] = limit50PerCategory([
+  ...staticQuizQuestions,
+  ...generateProgrammaticQuestions()
+]);

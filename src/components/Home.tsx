@@ -146,11 +146,11 @@ export default function Home({ setActiveTab }: HomeProps) {
                 <span className={`text-3xl md:text-4xl font-extrabold font-display ${stat.color}`}>
                   {stat.count}
                 </span>
-                <h4 className="text-sm font-semibold text-slate-880 dark:text-slate-200 mt-2">
+                <h4 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mt-2">
                   {stat.label}
                 </h4>
               </div>
-              <p className="text-xs text-slate-400 dark:text-slate-500 mt-1 font-sans">
+              <p className="text-xs text-slate-500 dark:text-zinc-400 mt-1 font-sans">
                 {stat.description}
               </p>
             </div>
@@ -177,7 +177,7 @@ export default function Home({ setActiveTab }: HomeProps) {
                   <div className={`p-3.5 rounded-xl w-fit ${link.bgColor} ${link.iconColor}`}>
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h4 className="text-lg font-bold font-display text-gray-800 dark:text-zinc-150 mt-4">
+                  <h4 className="text-lg font-bold font-display text-gray-800 dark:text-zinc-200 mt-4">
                     {link.title}
                   </h4>
                   <p className="text-sm text-gray-400 dark:text-zinc-400 font-sans mt-2 leading-relaxed">

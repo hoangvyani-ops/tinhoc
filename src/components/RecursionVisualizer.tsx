@@ -29,6 +29,7 @@ export default function RecursionVisualizer() {
   
   // Fibonacci States
   const [fibTreeNodes, setFibTreeNodes] = useState<{ id: string; label: string; state: 'idle' | 'active' | 'done'; value?: number }[]>([]);
+  const [fibLog, setFibLog] = useState<string[]>([]);
 
   // Hanoi States
   const [hanoiTowers, setHanoiTowers] = useState<Record<string, number[]>>({ A: [], B: [], C: [] });
@@ -46,6 +47,7 @@ export default function RecursionVisualizer() {
     setIsRunning(false);
     setFactorialStack([]);
     setFactorialLog([]);
+    setFibLog(['Hãy bấm Chạy mô phỏng để bắt đầu vẽ cây phân nhánh Fibonacci.']);
     
     // Set Hanoi Init Disks
     const initialDisks = Array.from({ length: hanoiInput }, (_, i) => hanoiInput - i); // [3, 2, 1]
@@ -133,20 +135,33 @@ export default function RecursionVisualizer() {
     if (isRunning) return;
     setIsRunning(true);
     initializeFibTree();
-    await delay(500);
+    setFibLog(['🎬 Bắt đầu tiến trình tính toán dãy đệ quy Fibonacci bằng cây gọi hàm (Call Tree)...']);
+    await delay(600);
 
-    // Step-by-step active/inactive nodes on simulated static tree logic
+    const getFibVal = (x: number): number => {
+      if (x <= 0) return 0;
+      if (x === 1) return 1;
+      return getFibVal(x - 1) + getFibVal(x - 2);
+    };
+
+    const val1 = getFibVal(fibInput);
+    const val2 = getFibVal(fibInput - 1);
+    const val3 = getFibVal(fibInput - 2);
+    const val4 = getFibVal(fibInput - 2);
+    const val5 = getFibVal(fibInput - 3);
+
+    // Step-by-step active/inactive nodes on simulated static tree logic with beautiful descriptions
     const sequence = [
-      { id: '1', state: 'active' as const },
-      { id: '2', state: 'active' as const },
-      { id: '4', state: 'active' as const },
-      { id: '4', state: 'done' as const, value: 1 },
-      { id: '5', state: 'active' as const },
-      { id: '5', state: 'done' as const, value: 0 },
-      { id: '2', state: 'done' as const, value: 1 },
-      { id: '3', state: 'active' as const },
-      { id: '3', state: 'done' as const, value: 1 },
-      { id: '1', state: 'done' as const, value: 2 },
+      { id: '1', state: 'active' as const, log: `👉 Bước 1: Gọi hàm gốc F(${fibInput}) để bắt đầu đệ quy.` },
+      { id: '2', state: 'active' as const, log: `👉 Bước 2: Rẽ trái để gọi nhánh con F(${fibInput - 1}).` },
+      { id: '3', state: 'active' as const, log: `👉 Bước 3: Tiếp tục rẽ trái sâu hơn để gọi F(${fibInput - 2}).` },
+      { id: '3', state: 'done' as const, value: val3, log: `✓ Bước 4: F(${fibInput - 2}) hoàn thành xử lý và trả về giá trị trực tiếp = ${val3}.` },
+      { id: '5', state: 'active' as const, log: `👉 Bước 5: Rẽ phải từ F(${fibInput - 1}) để gọi F(${fibInput - 3}).` },
+      { id: '5', state: 'done' as const, value: val5, log: `✓ Bước 6: F(${fibInput - 3}) hoàn thành xử lý và trả về giá trị trực tiếp = ${val5}.` },
+      { id: '2', state: 'done' as const, value: val2, log: `✓ Bước 7: Phối hợp nhánh trái: F(${fibInput - 1}) = F(${fibInput - 2}) + F(${fibInput - 3}) = ${val3} + ${val5} = ${val2}.` },
+      { id: '4', state: 'active' as const, log: `👉 Bước 8: Quay lại nhánh gốc, rẽ phải để gọi F(${fibInput - 2}).` },
+      { id: '4', state: 'done' as const, value: val4, log: `✓ Bước 9: F(${fibInput - 2}) ở nhánh phải hoàn thành xử lý, trả về = ${val4}.` },
+      { id: '1', state: 'done' as const, value: val1, log: `🎉 Bước 10: Xong nhánh gốc! F(${fibInput}) = F(${fibInput - 1}) + F(${fibInput - 2}) = ${val2} + ${val4} = ${val1}.` },
     ];
 
     for (let step of sequence) {
@@ -155,7 +170,8 @@ export default function RecursionVisualizer() {
           node.id === step.id ? { ...node, state: step.state, value: step.value } : node
         )
       );
-      await delay(900);
+      setFibLog(prev => [...prev, step.log]);
+      await delay(1200);
     }
     setIsRunning(false);
   };
@@ -224,7 +240,7 @@ export default function RecursionVisualizer() {
                 className={`w-full px-4 py-3 rounded-xl text-left text-xs font-semibold border transition-all ${
                   selectedRec === type
                     ? 'border-blue-500 bg-blue-50 text-blue-600 dark:bg-purple-950/20 dark:border-purple-500 dark:text-purple-400'
-                    : 'border-gray-100 dark:border-zinc-800 hover:bg-gray-50 dark:hover:bg-zinc-805 text-gray-700 dark:text-zinc-300'
+                    : 'border-gray-100 dark:border-zinc-800 hover:bg-gray-50 dark:hover:bg-zinc-800 text-gray-700 dark:text-zinc-300'
                 }`}
               >
                 {type === 'factorial' ? 'Tính Giai thừa (N!)' : type === 'fibonacci' ? 'Dãy số Fibonacci (Call Tree)' : 'Tháp Hà Nội (Tower of Hanoi)'}
@@ -430,6 +446,7 @@ export default function RecursionVisualizer() {
                     fibTreeNodes[2]?.state === 'done' ? 'bg-emerald-500 border-emerald-500 text-white' : 'bg-white dark:bg-zinc-900 dark:border-zinc-800 text-gray-400'
                   }`}>
                     {fibTreeNodes[2]?.label}
+                    {fibTreeNodes[2]?.value !== undefined && <span className="block text-[10px] mt-1 text-slate-100">→ {fibTreeNodes[2]?.value}</span>}
                   </div>
 
                   <div className={`p-3.5 rounded-xl border w-20 font-bold font-mono transition-all duration-300 ${
@@ -500,6 +517,8 @@ export default function RecursionVisualizer() {
         <div className="h-28 overflow-y-auto bg-gray-50 dark:bg-zinc-850 rounded-xl border border-gray-150 dark:border-zinc-800 p-4 font-mono text-[11px] leading-relaxed text-gray-700 dark:text-zinc-350 shadow-inner space-y-1 scrollbar-thin">
           {selectedRec === 'factorial' ? (
             factorialLog.map((log, i) => <div key={i}>{log}</div>)
+          ) : selectedRec === 'fibonacci' ? (
+            fibLog.map((log, i) => <div key={i}>{log}</div>)
           ) : (
             <div>{hanoiStatus}</div>
           )}
